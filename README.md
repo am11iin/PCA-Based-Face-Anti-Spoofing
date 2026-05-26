@@ -34,35 +34,28 @@ The method is based on **Principal Component Analysis (PCA)** for dimensionality
 
 ## Dataset
 
-> ⚠️ **Note:** Please update this section to confirm the exact dataset used.
+This project uses the **CASIA-FASD** (CASIA Face Anti-Spoofing Database), available on Kaggle.
 
-This project is designed to work with a face anti-spoofing dataset structured into two classes:
+| Field | Details |
+|-------|---------|
+| **Name** | CASIA Face Anti-Spoofing Database (CASIA-FASD) |
+| **Source (Kaggle)** | [kaggle.com/datasets/minhnh2107/casiafasd](https://www.kaggle.com/datasets/minhnh2107/casiafasd) |
+| **Original paper** | Z. Zhang et al., *"A Face Anti-Spoofing Database with Diverse Attacks"*, ICB 2012 |
+| **Attack types** | Warped printed photos, printed photos with cut eyes, video replay |
+| **Camera qualities** | Low quality, normal quality, high quality |
+| **Classes** | `real` (live face) / `fake` (spoof attack) |
+| **Format** | AVI videos → extracted frames (JPEG/PNG) |
 
-| Class | Description |
-|-------|-------------|
-| `real` / `client` | Authentic live face images |
-| `fake` / `imposter` | Spoofed face images (printed photos or replayed videos) |
-
-A commonly used dataset for this type of pipeline is the **NUAA Imposter Database**:
-
-- **Name:** NUAA Face Anti-Spoofing Dataset
-- **Source:** [NUAA — Nanjing University of Aeronautics and Astronautics](http://parnec.nuaa.edu.cn/xtan/NUAAImposterDB_download.html)
-- **Also available on Kaggle:** [nuaaaa dataset](https://www.kaggle.com/datasets/aleksandrpikul222/nuaaaa)
-- **Content:** ~5,000 real face images + ~5,000 imposter (printed photo) images
-- **Format:** JPEG/PNG, grayscale or RGB
-
-> If a different dataset was used (e.g., a custom dataset or another benchmark), please update this section accordingly.
-
-### Expected folder structure
+### Dataset folder structure
 
 ```
-dataset/
-├── ClientFace/       # Real face images
-│   ├── 0001_001.jpg
-│   └── ...
-└── ImposterFace/     # Fake / spoofed face images
-    ├── 0001_001.jpg
-    └── ...
+CASIA_FASD/
+├── train_release/
+│   ├── 1/              # Real face videos/frames
+│   └── 2/              # Fake face videos/frames (attack types)
+└── test_release/
+    ├── 1/              # Real
+    └── 2/              # Fake
 ```
 
 ---
@@ -178,7 +171,7 @@ jupyter notebook Face_Anti_Spoofing_with_PCA.ipynb
 4. **Update the dataset path** in the first cell of the notebook if needed:
 
 ```python
-DATASET_PATH = "./dataset/"
+DATASET_PATH = "./CASIA_FASD/"
 ```
 
 5. **Run all cells** sequentially (Kernel → Restart & Run All).
