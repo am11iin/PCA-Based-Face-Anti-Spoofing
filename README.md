@@ -180,7 +180,7 @@ DATASET_PATH = "./CASIA_FASD/"
 
 ## Results
 
-> ⚠️ Update this section with your actual results after running the notebook.
+
 
 | Metric | Value |
 |--------|-------|
